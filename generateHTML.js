@@ -188,9 +188,9 @@ function generateHTML(data) {
 
             <nav class="links-nav">
 
-                <a class="nav-link" href="">Atlanta, GA</a>
-                <a class="nav-link" href="">Github</a>
-                <a class="nav-link" href="">Blog</a>
+                <a class="nav-link" href="${data.location}">Atlanta, GA</a>
+                <a class="nav-link" href="${data.github}">Github</a>
+                <a class="nav-link" href="${data.blog}">Blog</a>
 
             </nav>
 
