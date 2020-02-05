@@ -210,12 +210,12 @@ function generateHTML(data) {
 
                 <div class="card col">
                     <h2>Public Repositories</h2>
-                    <h4>135</h4>
+                    <h4>${data.repos}</h4>
                 </div>
 
                 <div class="card col">
                     <h2>Followers</h2>
-                    <h4>92</h4>
+                    <h4>${data.followers}</h4>
                 </div>
 
             </div>
@@ -224,12 +224,12 @@ function generateHTML(data) {
 
                 <div class="card col">
                     <h2>GitHub Stars</h2>
-                    <h4>4</h4>
+                    <h4>${data.stars}</h4>
                 </div>
 
                 <div class="card col">
                     <h2>Following</h2>
-                    <h4>69</h4>
+                    <h4>${data.following}</h4>
                 </div>
 
             </div>
