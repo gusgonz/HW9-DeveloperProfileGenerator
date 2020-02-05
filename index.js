@@ -1,11 +1,11 @@
 const questions = [
-  
+
 ];
 
 function writeToFile(fileName, data) {
- 
+
 }
 
-function init() {
+function init() { }
 
 init();
