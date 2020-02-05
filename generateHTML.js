@@ -201,7 +201,7 @@ function generateHTML(data) {
             <div class="row">
 
                 <div class="col">
-                    <h2>I build things and teach people cool things</h2>
+                    <h2>${data.bio}</h2>
                 </div>
 
             </div>
