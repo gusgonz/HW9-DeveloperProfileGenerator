@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const axios = require('axios');
+
 
 const questions = [
     {
@@ -31,10 +33,14 @@ function init() {
     // User prompt
     inquirer.prompt(questions)
         .then(function (response) {
-            // grabbing username and selected color
+            // grabbing username and selected color and stroing in data object
             data.username = response.username.trim();
             data.color = response.color;
-            console.log(data.username, data.color);
+
+            // api call - github users
+            axios
+                .get(`https://api.github.com/users/${data.username}`)
+
         })
 
 
