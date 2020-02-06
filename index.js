@@ -32,9 +32,9 @@ function init() {
     inquirer.prompt(questions)
         .then(function (response) {
             // grabbing username and selected color
-            let gitUsername = response.username.trim();
-            let color = response.color;
-            console.log(gitUsername, color);
+            data.username = response.username.trim();
+            data.color = response.color;
+            console.log(data.username, data.color);
         })
 
 
