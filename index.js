@@ -36,6 +36,9 @@ function getStars() {
         }));
 }
 
+// for google maps, need to use maps url builder and encode the
+// https://www.google.com/maps/search/?api=1&query=${response.location}
+// encodeURI() on the url with location at end
 
 function init() {
 
@@ -56,7 +59,7 @@ function init() {
                     data.followers = response.followers;
                     data.following = response.following;
                     data.repos = response['public_repos'];
-                    data.location = response.location;
+                    data.location = encodeURI(`https://www.google.com/maps/search/?api=1&query=${response.location}`);
                     data.blog = response.blog;
                     data.name = response.name;
                     data.company = response.company;
