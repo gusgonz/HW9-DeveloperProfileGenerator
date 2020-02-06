@@ -184,7 +184,7 @@ function generateHTML(data) {
             <h1>Hi!</h1>
             <h1>My name is ${data.name}</h1>
 
-            <h3>Currently working at ${data.occupation}</h3>
+            <h3>Currently working at ${data.company}</h3>
 
             <nav class="links-nav">
 
