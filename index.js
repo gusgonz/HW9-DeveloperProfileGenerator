@@ -30,6 +30,7 @@ function init() {
         .then(function (response) {
             console.log(response);
             let username = response.username;
+            let color = response.color;
         })
 }
 
