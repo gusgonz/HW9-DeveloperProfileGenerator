@@ -53,7 +53,7 @@ function init() {
                     data.company = response.company;
                     data.imgURL = response['avatar_url'];
 
-                    console.log
+                    console.log(data.bio, data.followers, data.following, data.repos, data.location, data.blog, data.name, data.company, data.imgURL);
 
                 })
                 .catch(function (error) {
