@@ -52,8 +52,9 @@ function init() {
                     data.name = response.name;
                     data.company = response.company;
                     data.imgURL = response['avatar_url'];
+                    data.github = `https://www.github.com/${data.username}/`;
 
-                    console.log(data.bio, data.followers, data.following, data.repos, data.location, data.blog, data.name, data.company, data.imgURL);
+                    // console.log(data.bio, data.followers, data.following, data.repos, data.location, data.blog, data.name, data.company, data.imgURL, data.github);
 
                 })
                 .catch(function (error) {
