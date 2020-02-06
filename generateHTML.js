@@ -209,7 +209,7 @@ function generateHTML(data) {
             <div class="row">
 
                 <div class="card col">
-                    <h2>Public Repositories</h2>
+                    <h3>Public Repositories</h3>
                     <h4>${data.repos}</h4>
                 </div>
 
