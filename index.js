@@ -26,7 +26,7 @@ function writeToFile(fileName, data) {
 }
 
 
-async function init() {
+function init() {
 
     // User prompt
     inquirer.prompt(questions)
