@@ -28,13 +28,12 @@ function writeToFile(fileName, data) {
 }
 
 function getStars() {
-    console.log('getStars');
+    // returning so that i can await it later
     return (axios
         .get(`https://api.github.com/users/${data.username}/starred`)
         .then(function (resp) {
-            console.log('response: ', resp);
             data.stars = resp.data.length;
-        }))
+        }));
 }
 
 
@@ -52,7 +51,7 @@ function init() {
                 .get(`https://api.github.com/users/${data.username}`)
                 .then(async function (resp) {
                     let response = resp.data;
-                    // console.log(response);
+
                     data.bio = response.bio;
                     data.followers = response.followers;
                     data.following = response.following;
