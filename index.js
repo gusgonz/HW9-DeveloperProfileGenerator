@@ -29,7 +29,7 @@ function init() {
     inquirer.prompt(questions)
         .then(function (response) {
             //
-            let gitUsername = response.username;
+            let gitUsername = response.username.trim();
             let color = response.color;
         })
 }
