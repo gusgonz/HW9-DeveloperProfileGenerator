@@ -27,6 +27,16 @@ function writeToFile(fileName, data) {
 
 }
 
+function getStars() {
+    console.log('getStars');
+    return (axios
+        .get(`https://api.github.com/users/${data.username}/starred`)
+        .then(function (resp) {
+            console.log('response: ', resp);
+            data.stars = resp.data.length;
+        }))
+}
+
 
 function init() {
 
@@ -40,7 +50,7 @@ function init() {
             // api call - github users
             axios
                 .get(`https://api.github.com/users/${data.username}`)
-                .then(function (resp) {
+                .then(async function (resp) {
                     let response = resp.data;
                     // console.log(response);
                     data.bio = response.bio;
@@ -54,11 +64,17 @@ function init() {
                     data.imgURL = response['avatar_url'];
                     data.github = `https://www.github.com/${data.username}/`;
 
-                    // console.log(data.bio, data.followers, data.following, data.repos, data.location, data.blog, data.name, data.company, data.imgURL, data.github);
+                    // need to get #
+
+                    await getStars();
+
 
                 })
                 .catch(function (error) {
                     console.log(error);
+                })
+                .finally(function () {
+                    console.log(data);
                 });
 
         })
