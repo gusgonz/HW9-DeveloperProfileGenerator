@@ -241,3 +241,5 @@ function generateHTML(data) {
 </html>`
 }
 
+
+exports.generateHTML = generateHTML;
