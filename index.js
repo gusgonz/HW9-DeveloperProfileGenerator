@@ -92,9 +92,9 @@ function init() {
                             return console.error(err);
                         }
 
-                        console.log(result.numberOfPages);
-                        console.log(result.logs);
-                        result.stream.pipe(fs.createWriteStream('/profile.pdf'));
+                        // console.log(result.numberOfPages);
+                        // console.log(result.logs);
+                        result.stream.pipe(fs.createWriteStream('./profile.pdf'));
                     });
                 });
 
