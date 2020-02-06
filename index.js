@@ -64,8 +64,8 @@ function init() {
                     data.imgURL = response['avatar_url'];
                     data.github = `https://www.github.com/${data.username}/`;
 
-                    // need to get #
 
+                    // number of starred repos
                     await getStars();
 
 
