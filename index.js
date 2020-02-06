@@ -28,8 +28,8 @@ function init() {
     // User prompt
     inquirer.prompt(questions)
         .then(function (response) {
-            console.log(response);
-            let username = response.username;
+            //
+            let gitUsername = response.username;
             let color = response.color;
         })
 }
