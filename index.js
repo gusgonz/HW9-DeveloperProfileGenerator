@@ -19,19 +19,25 @@ const questions = [
     }
 ];
 
+const data = {};
+
 function writeToFile(fileName, data) {
 
 }
 
-function init() {
+
+async function init() {
 
     // User prompt
     inquirer.prompt(questions)
         .then(function (response) {
-            //
+            // grabbing username and selected color
             let gitUsername = response.username.trim();
             let color = response.color;
+            console.log(gitUsername, color);
         })
+
+
 }
 
 init();
