@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const axios = require('axios');
+const htmlMaker = require('./generateHTML.js')
 
 
 const questions = [
@@ -63,7 +64,7 @@ function init() {
                     data.blog = response.blog;
                     data.name = response.name;
                     data.company = response.company;
-                    data.imgURL = response['avatar_url'];
+                    data.img = response['avatar_url'];
                     data.github = `https://www.github.com/${data.username}/`;
 
 
@@ -76,7 +77,9 @@ function init() {
                     console.log(error);
                 })
                 .finally(function () {
-                    console.log(data);
+                    // console.log(data);
+                    let htmlString = htmlMaker.generateHTML(data);
+                    console.log(htmlString);
                 });
 
         })
