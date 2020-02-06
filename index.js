@@ -8,6 +8,11 @@ const conversion = convertFactory({
     converterPath: convertFactory.converters.PDF
 });
 
+const Spinner = require('cli-spinner').Spinner;
+
+const spinner = new Spinner('processing.. %s');
+spinner.setSpinnerString('|/-\\');
+
 
 const questions = [
     {
@@ -30,9 +35,9 @@ const questions = [
 
 const data = {};
 
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-}
+// }
 
 function getStars() {
     // returning so that i can await it later
@@ -55,6 +60,7 @@ function init() {
             // grabbing username and selected color and stroing in data object
             data.username = response.username.trim();
             data.color = response.color;
+            spinner.start();
 
             // api call - github users
             axios
@@ -85,7 +91,7 @@ function init() {
                 .finally(function () {
                     // console.log(data);
                     let htmlString = htmlMaker.generateHTML(data);
-                    console.log(htmlString);
+                    // console.log(htmlString);
 
                     conversion({ html: htmlString }, function (err, result) {
                         if (err) {
@@ -95,6 +101,9 @@ function init() {
                         // console.log(result.numberOfPages);
                         // console.log(result.logs);
                         result.stream.pipe(fs.createWriteStream('./profile.pdf'));
+                        spinner.stop(true);
+                        console.log('PDF successfully created!')
+                        conversion.kill();
                     });
                 });
 
