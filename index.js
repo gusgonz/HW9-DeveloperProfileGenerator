@@ -1,6 +1,12 @@
 const inquirer = require('inquirer');
 const axios = require('axios');
 const htmlMaker = require('./generateHTML.js')
+const fs = require('fs'),
+    convertFactory = require('electron-html-to');
+
+const conversion = convertFactory({
+    converterPath: convertFactory.converters.PDF
+});
 
 
 const questions = [
@@ -80,6 +86,16 @@ function init() {
                     // console.log(data);
                     let htmlString = htmlMaker.generateHTML(data);
                     console.log(htmlString);
+
+                    conversion({ html: htmlString }, function (err, result) {
+                        if (err) {
+                            return console.error(err);
+                        }
+
+                        console.log(result.numberOfPages);
+                        console.log(result.logs);
+                        result.stream.pipe(fs.createWriteStream('/profile.pdf'));
+                    });
                 });
 
         })
