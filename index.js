@@ -40,6 +40,25 @@ function init() {
             // api call - github users
             axios
                 .get(`https://api.github.com/users/${data.username}`)
+                .then(function (resp) {
+                    let response = resp.data;
+                    // console.log(response);
+                    data.bio = response.bio;
+                    data.followers = response.followers;
+                    data.following = response.following;
+                    data.repos = response['public_repos'];
+                    data.location = response.location;
+                    data.blog = response.blog;
+                    data.name = response.name;
+                    data.company = response.company;
+                    data.imgURL = response['avatar_url'];
+
+                    console.log
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
         })
 
