@@ -73,6 +73,7 @@ function init() {
                     data.following = response.following;
                     data.repos = response['public_repos'];
                     data.location = encodeURI(`https://www.google.com/maps/search/?api=1&query=${response.location}`);
+                    data.place = response.location;
                     data.blog = response.blog;
                     data.name = response.name;
                     data.company = response.company;

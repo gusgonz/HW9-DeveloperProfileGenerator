@@ -184,11 +184,11 @@ function generateHTML(data) {
             <h1>Hi!</h1>
             <h1>My name is ${data.name}</h1>
 
-            <h3>Currently working at ${data.company}</h3>
+            ${data.company ? `<h3>Currently working at ${data.company}</h3>` : ''}
 
             <nav class="links-nav">
 
-                <a class="nav-link" href="${data.location}">Atlanta, GA</a>
+                <a class="nav-link" href="${data.location ? data.location : 'Location unavailable'}">${data.place}</a>
                 <a class="nav-link" href="${data.github}">Github</a>
                 <a class="nav-link" href="${data.blog}">Blog</a>
 
