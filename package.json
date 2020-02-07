@@ -1,0 +1,28 @@
+{
+  "name": "HW9-DeveloperProfileGenerator",
+  "version": "1.0.0",
+  "description": "A command-line application that dynamically generates a PDF profile from a GitHub username.",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cli-spinner": "^0.2.10",
+    "electron-prebuilt": "^1.4.13",
+    "electron-html-to": "^2.6.0",
+    "inquirer": "^7.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusgonz/HW9-DeveloperProfileGenerator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gusgonz/HW9-DeveloperProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/gusgonz/HW9-DeveloperProfileGenerator#readme"
+}
