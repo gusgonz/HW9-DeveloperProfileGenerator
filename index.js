@@ -57,6 +57,8 @@ function init() {
     // User prompt
     inquirer.prompt(questions)
         .then(function (response) {
+            let flag = false;
+
             // grabbing username and selected color and stroing in data object
             data.username = response.username.trim();
             data.color = response.color;
@@ -87,25 +89,32 @@ function init() {
 
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    flag = true;
+                    console.error('\nInvalid GitHub Username\nPlease enter a valid username');
                 })
+
                 .finally(function () {
-                    // console.log(data);
-                    let htmlString = htmlMaker.generateHTML(data);
-                    // console.log(htmlString);
 
-                    conversion({ html: htmlString }, function (err, result) {
-                        if (err) {
-                            return console.error(err);
-                        }
+                    if (!flag) {
+                        // console.log(data);
+                        let htmlString = htmlMaker.generateHTML(data);
+                        // console.log(htmlString);
 
-                        // console.log(result.numberOfPages);
-                        // console.log(result.logs);
-                        result.stream.pipe(fs.createWriteStream('./profile.pdf'));
+                        conversion({ html: htmlString }, function (err, result) {
+                            if (err) {
+                                return console.error(err);
+                            }
+
+                            // console.log(result.numberOfPages);
+                            // console.log(result.logs);
+                            result.stream.pipe(fs.createWriteStream('./profile.pdf'));
+                            spinner.stop(true);
+                            console.log('PDF successfully created!')
+                            conversion.kill();
+                        });
+                    } else {
                         spinner.stop(true);
-                        console.log('PDF successfully created!')
-                        conversion.kill();
-                    });
+                    }
                 });
 
         })
