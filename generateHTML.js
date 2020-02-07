@@ -25,6 +25,11 @@ const colors = {
   }
 };
 
+
+// Using ternaries and template literals to validate that the api grabbed something valid
+// For example, some github users haven't updated their page with certain information, which will make the api return null
+// instead i'm making the whole element not show up if the returned value is null
+
 function generateHTML(data) {
   return `<!DOCTYPE html>
 <html lang="en">
