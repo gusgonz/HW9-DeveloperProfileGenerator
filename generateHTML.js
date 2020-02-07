@@ -188,9 +188,9 @@ function generateHTML(data) {
 
             <nav class="links-nav">
 
-                <a class="nav-link" href="${data.location ? data.location : 'Location unavailable'}">${data.place}</a>
+                ${data.place ? `<a class="nav-link" href="${data.location}">${data.place}</a>` : ''}
                 <a class="nav-link" href="${data.github}">Github</a>
-                <a class="nav-link" href="${data.blog}">Blog</a>
+                ${data.blog ? `<a class="nav-link" href="${data.blog}">Blog</a>` : ''}
 
             </nav>
 
